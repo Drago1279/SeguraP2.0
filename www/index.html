@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+<!--    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- Color theme for statusbar -->
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Your app title -->
+    <title>SeguraP2</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="lib/framework7/framework7-bundle.min.css">
+    <!-- Path to icons -->
+    <link rel="stylesheet" href="css/icons.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Statusbar overlay -->
+        <div class="statusbar"></div>
+    
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            
+            <div data-name="index" class="page bg-color-black">
+                <!-- Scrollable page content -->
+                <div class="page-content">
+                    <div><br><br><br><br><br><br></div>
+                    <div class="EstoTambienEnElCentro">
+                        <p style="width: 30%;"></p>
+                        <button class="EstoVaEnElCentro2" id="BotonUsuario" href="/Usuario/" data-view=".page-content" style="background-color: darkgreen; width: 40%; color: white; border-radius: 50%;">Usuario</button>
+                        <p style="width: 30%;"></p>
+                    </div>
+                    <div><br><br><br><br><br></div>
+                    <div class="EstoTambienEnElCentro">
+                        <p style="width: 30%;"></p>
+                        <button class="EstoVaEnElCentro2" id="BotonSeguridad" href="/Seguridad/" data-view=".page-content" style="background-color: darkgreen; width: 40%; color: white; border-radius: 50%;">Seguridad</button>
+                        <p style="width: 30%;"></p>
+                    </div>
+                    <div><br><br><br><br><br></div>
+                    <div class="EstoTambienEnElCentro">
+                        <p style="width: 30%;"></p>
+                        <button class="EstoVaEnElCentro2" id="Ajustes" href="/registro/" data-view=".page-content" style="background-color: darkgreen; width: 40%; color: white; border-radius: 50%;">Registro</button>
+                        <p style="width: 30%;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+    <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyC1ihhVqAAfruJG0o_7Ox9El3GGGIUSNo8",
+          authDomain: "segurap-de39b.firebaseapp.com",
+          projectId: "segurap-de39b",
+          storageBucket: "segurap-de39b.appspot.com",
+          messagingSenderId: "329266578842",
+          appId: "1:329266578842:web:967603dfcf254ec4f52623"
+        };
+    // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+<!--Demas Scripts-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="lib/framework7/framework7-bundle.min.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+</html>

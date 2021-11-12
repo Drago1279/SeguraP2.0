@@ -1,0 +1,131 @@
+<!-- We don't need a full layout in this file because this page will be parsed with Ajax.  -->
+<div class="page bg-color-black" data-name="registro">
+    <div class="navbar bg-color-black">
+        <div class="navbar-inner sliding">
+        <div class="left">
+            <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only"></span>
+            </a>
+        </div>
+        </div>
+    </div>
+<!--Aqui LOGIN-->    
+    <div class="block-title"></div>
+    <div class="block-title text-color-white">Por Favor Registrese</div>
+      <div class="block list no-hairlines-md page-content">
+        <ul>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Nombre</div>
+              <div class="item-input-wrap">
+                <input id="lNombre" type="text" placeholder="Your Name" required validate />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Apellido</div>
+              <div class="item-input-wrap">
+                <input id="lApellido" type="text" placeholder="Your Last Name" required validate/>
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Direccion</div>
+              <div class="item-input-wrap">
+                <input id="nDireccion" type="text" placeholder="Enter your Adress" required validate data-error-message="Ingrese su direccion completa" />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Telefono</div>
+              <div class="item-input-wrap">
+                <input id="nCelular" type="text" placeholder="Enter your number" required validate pattern="[0-9]*"
+                  data-error-message="Ingrese solo numeros Por Favor!" />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">E-mail</div>
+              <div class="item-input-wrap">
+                <input id="lEmail" type="email" placeholder="Your e-mail" required validate />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Contraseña</div>
+              <div class="item-input-wrap">
+                <input id="lPass" type="password" placeholder="Password" required validate />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <li class="item-content item-input item-input-with-info">
+            <div class="item-media">
+              <i class="icon demo-list-icon"></i>
+            </div>
+            <div class="item-inner">
+              <div class="item-title item-label">Validar Contraseña</div>
+              <div class="item-input-wrap">
+                <input id="valPass" type="password" placeholder="Validate Password" required validate />
+                <span class="input-clear-button"></span>
+                <div class="item-input-info">Completar este campo</div>
+              </div>
+            </div>
+          </li>
+          <h4 class="title text-align-center SeleccionUsSeg" style="width: 70%; padding-left: 15%;"><button  id="C12" class="button button-fill popover-open" data-popover=".popover-dado" style="background: black;" required>Tipo de Usuario</button></h4>
+          <div>
+            <p style="width: 35%;"></p>
+            <input id="C00" class="EleccionUsuario text-color-darkblue" style="font-size: 200%;" type="text" value="" required/>
+            <p style="width: 35%;"></p>
+          </div>
+          </ul>
+        <div>
+          <input id="loginEnviar" class="BotonEnviar" type="submit" value="Registrese">
+        </div>
+      </div class="EstoCentro">
+      <div class="popover popover-dado">
+            <div class="popover-inner">
+                <div class="list">
+                    <ul>
+                        <li><a id="S11" class="list-button item-link popover-close SeguraP" href="#">Usuario</a></li>
+                        <li><a id="S12" class="list-button item-link popover-close SeguraP" href="#">Seguridad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
