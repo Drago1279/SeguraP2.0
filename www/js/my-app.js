@@ -86,7 +86,7 @@ $$(document).on('page:init', '.page[data-name="ayuda"]', function (e) {
     fnSMS()
     $$('#VuelvePantAnt').on('click', fnVueltaUsuario);
     $$('#AceptarVuelta').on('click', fnAceptarVuelta);
-    //GeolocaIntervalo = setInterval(function() {fnGeolocalizacion();},10000)
+    GeolocaIntervalo = setInterval(function() {fnGeolocalizacion();},10000)
     ConsoleGeo = setInterval(function() {console.log("Geo ubic.");}, 10000)
 })
 $$(document).on('page:init', '.page[data-name="Seguridad"]', function (e) {
@@ -96,6 +96,7 @@ $$(document).on('page:init', '.page[data-name="Seguridad"]', function (e) {
 $$(document).on('page:init', '.page[data-name="Usuario"]', function (e) {
     console.log('Redireccionando Usuario');
     $$('#BotonPanico').on('click', fnPanico);
+    $$('#VuelvePantAnt2').on('click', fnVueltaAIndex);
     clearInterval(ConsoleGeo);
     console.log('Deteniendo console.log Geo ubic')
     clearInterval(GeolocaIntervalo);
@@ -103,6 +104,7 @@ $$(document).on('page:init', '.page[data-name="Usuario"]', function (e) {
 })
 $$(document).on('page:init', '.page[data-name="Ingreso"]', function (e) {
     console.log('Redireccionando a Ingreso');
+    $$('#VuelveInicio').on('click', fnVuelveInicio)
     $$('#AceptarUsuario').on('click', fnAceptarUsu)
     clearInterval(ConsoleGeo);
     console.log('Deteniendo console.log Geo ubic')
@@ -151,7 +153,7 @@ function LoguearseConLocal(u,c ){
         var huboError = 0;     
         firebase.auth().signInWithEmailAndPassword(u, c)
             .catch(function(error){
-                //Si hubo algun error, ponemos un valor referenciable en la variable huboError
+    //Si hubo algun error, ponemos un valor referenciable en la variable huboError
                 huboError = 1;
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -159,7 +161,7 @@ function LoguearseConLocal(u,c ){
                 console.log(errorCode);
             })
             .then(function(){   
-                //En caso de que esté correcto el inicio de sesión y no haya errores, se dirige a la siguiente página
+    //En caso de que esté correcto el inicio de sesión y no haya errores, se dirige a la siguiente página
                 if(huboError == 0){
                     // login ok....
                     console.log("login ok");
@@ -168,7 +170,6 @@ function LoguearseConLocal(u,c ){
     };
 function fnAceptarUsu() {
     console.log('Ingresar a Seguridad');
-        // cada un@ pone su magia para recuperar el mail y la clave de un form...
     var emailDelUser = $$('#lNombre2').val();
     var passDelUser = $$('#loginPass').val();
 
@@ -198,7 +199,7 @@ function fnSMS() {
     console.log("Iniciando SMS")
     var app = {
     sendSms: function() {
-        var number = 3471516205/*document.getElementById('nCelular').value.toString();*/ /* iOS: ensure number is actually a string */
+        var number = 3471516205 /*document.getElementById('nCelular').value.toString();*/ /* iOS: ensure number is actually a string */
         var message = "HELP";
         console.log("number=" + number + ", message= " + message);
     //CONFIGURATION
@@ -216,13 +217,18 @@ function fnSMS() {
     };
 }
 function fnGeolocalizacion() {
-    console.log('Iniciando Geoloca')
+    console.log('Iniciando Geoloca');
     var onSuccess = function(position) {
-        platform = new H.service.Platform({
-    'apikey': 'F0nLPjOCKjlT1nIZXGXq'
-   });
-        console.log('Platform', platform)
-    }
+        // $$('#mapContainer').html();
+        alert('Latitude: '          + position.coords.latitude          + '\n' +
+              'Longitude: '         + position.coords.longitude         + '\n' +
+              'Altitude: '          + position.coords.altitude          + '\n' +
+              'Accuracy: '          + position.coords.accuracy          + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+              'Heading: '           + position.coords.heading           + '\n' +
+              'Speed: '             + position.coords.speed             + '\n' +
+              'Timestamp: '         + position.timestamp                + '\n');
+    };
     // onError Callback receives a PositionError object
     function onError(error) {
         alert('code: '    + error.code    + '\n' +
@@ -232,6 +238,14 @@ function fnGeolocalizacion() {
 }
 function fnVueltaUsuario() {
     console.log("Abrir popover para Volver");
+}
+function fnVueltaAIndex() {
+    console.log('Vuelve a index')
+    mainView.router.navigate('/index/');
+}
+function fnVuelveInicio() {
+    console.log('Vuelve a index')
+    mainView.router.navigate('/index/');
 }
 function fnAceptarVuelta() {
     console.log('Aceptar');
@@ -249,22 +263,21 @@ function fnEnviar() {
 }
 function fnCerrarUsuario() {
     console.log('Cerrar Usuario');
-    var logOut = () => {
-    var user = firebase.auth().currentUser;
-
-    if (user) {
-        firebase.auth().signOut()
-            .then(() => {
-                console.log('Cerrar sesión');
-                mainView.router.navigate('/Ingreso/');
-            })
-            .catch((error) => {
-                console.log('error '+error);
-            });
-    } else {
-      console.log('Ya cerre sesion');
-    }
-    }
+    //var logOut = () => {   //function fnCerrarUsuario() {
+    //    var user = firebase.auth().currentUser;
+    //    if (user) {
+            firebase.auth().signOut()
+                .then(() => {
+                    console.log('Cerrar sesión');
+                    mainView.router.navigate('/Ingreso/');
+                })
+                .catch((error) => {
+                    console.log('error '+error);
+                });
+    //    } else {
+    //        console.log('Error' + user);
+    //    }
+//    }
 }
 function fnloginOnly() {
 /*  tomar los datos del formulario
